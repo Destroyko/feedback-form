@@ -20,14 +20,15 @@ class FeedbackController extends Controller
         $feedbackData = $request->validated();
 
         $this->feedbackModel->create([
-            'author'  => $feedbackData['fullName'],
-            'phone'   => $feedbackData['phoneNumber'],
-            'message' => $feedbackData['message'],
+            'author'       => $feedbackData['fullName'],
+            'phone'        => $feedbackData['phoneNumber'],
+            'countries_id' => $feedbackData['country'],
+            'message'      => $feedbackData['message'],
         ]);
 
         return response()->json([
             'status' => 'success',
-            'text' => 'Feedback was sent'
+            'text'   => 'Feedback was sent'
         ]);
     }
 }

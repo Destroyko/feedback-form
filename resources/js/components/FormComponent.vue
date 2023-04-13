@@ -42,9 +42,10 @@
                                     name="country"
                                     class="form-control"
                                     id="country"
+                                    v-model="formData.country"
+                                    required
                                 >
-                                    <option value="0">test</option>
-                                    <option value="1">test2</option>
+                                    <option v-for="(item, key) in countries_list" v-bind:value="key">{{ item }}</option>
                                 </select>
 
                             </div>
@@ -72,16 +73,22 @@
 <script>
 export default {
     created() {
-
+            axios.get('api/v1/countries').then(response => {
+                this.countries_list = response.data
+            }).catch(function (error) {
+                console.log(error)
+            })
     },
     mounted() {
         console.log('Component mounted.')
     },
     data() {
         return {
+            countries_list: [],
             formData: {
                 fullName: '',
                 phoneNumber: '',
+                country: '',
                 message: ''
             },
             response: ''
@@ -97,6 +104,7 @@ export default {
                 self.$refs.feedbackForm.reset();
                 self.formData = {
                     fullName: '',
+                    country: '',
                     phoneNumber: '',
                     message: ''
                 }

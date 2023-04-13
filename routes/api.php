@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\V1\CountriesController;
 use App\Http\Controllers\API\V1\FeedbackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,6 @@ Route::group([
     ], function () {
         Route::post('/create', [FeedbackController::class, 'create']);
     });
+
+    Route::get('/countries', [CountriesController::class, 'show']);
 });

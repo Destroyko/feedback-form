@@ -15,6 +15,7 @@ class FeedbackCreateRequest extends FormRequest
             'fullName'          => 'required|string',
             'phoneNumber'     => 'required|string',
             'message'         => 'required|string',
+            'country'         => 'required',
         ];
     }
 
