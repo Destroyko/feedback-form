@@ -9,4 +9,11 @@ class Feedback extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'author',
+        'phone',
+        'countries_id',
+        'message'
+    ];
+
 }

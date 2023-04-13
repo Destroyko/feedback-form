@@ -16,7 +16,7 @@ return new class extends Migration {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->string('author')->nullable()->default(null);
-            $table->integer('phone')->nullable()->default(null);
+            $table->string('phone')->nullable()->default(null);
             $table->foreignIdFor(Countries::class)
                 ->nullable()
                 ->default(null)
